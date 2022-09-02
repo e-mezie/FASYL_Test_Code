@@ -4,24 +4,10 @@ app = Flask (__name__)
 
 app.config['SECRET_KEY'] = 'cfe396b1a27c2914da6b7e45dee37180'
 
-posts = [
-    {
-        'author': 'Enid Blyton',
-        'title': 'Blog Post',
-        'content': 'James',
-        'date_posted': 'April 24th'
-    }
-]
-
 
 @app.route ('/home')
 def home():
     return render_template ('home.html')
-
-
-@app.route ('/register')
-def register():
-    return render_template ('register.html')
 
 
 @app.route ('/registration', methods=['GET', 'POST'])
