@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+{% block content%}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Join Today</legend>
+                <div class="form-group">
+                    {{ form.firstname.label(class="form-control-label")}}
+
+                    {% if form.firstname.errors %}
+                        {{ form.firstname(class="form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.firstname.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.firstname(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.lastname.label(class="form-control-label")}}
+
+                    {% if form.lastname.errors %}
+                        {{ form.lastname(class="form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.lastname.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.lastname(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.reference_code.label(class="form-control-label")}}
+
+                    {% if form.reference_code.errors %}
+                        {{ form.reference_code(class="form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.reference_code.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.reference_code(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label")}}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <label>Select Automobile Brand</label>
+                        <select name="automobile_brand" data-live-search="true" id="automobile_brand" class="form-control" title="Select Automobile Brand">
+                            <option value="None">Select Automobile Brand...</option>
+                            <option value="1">Mitsubishi</option>
+                            <option value="2">Toyota</option>
+                            <option value="3">Innoson</option>
+                            <option value="4">BMW</option>
+                            <option value="5">Mercedes</option>
+                            <option value="6">G-Wagon</option>
+                            <option value="7">Highlander</option>
+                            <option value="8">JEEP</option>
+                            <option value="9">IBILE</option>
+                            <option value="10">FASYL</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <label>Select Conditions You Wish To Fix..</label>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">Engine Issue
+                <label class="switch ">
+                <input type="checkbox" name="Engine Issue" class="danger">
+                <span class="slider round"></span>
+                </label>
+                </li>
+                <li class="list-group-item">Gearbox Issue
+                <label class="switch ">
+                <input type="checkbox" name="Gearbox Issue" class="danger">
+                <span class="slider round"></span>
+                </label>
+                </li>
+                <li class="list-group-item">Need Body Repair
+                <label class="switch ">
+                <input type="checkbox" name="Need Body Repair" class="danger">
+                <span class="slider round"></span>
+                </label>
+                </li>
+                 <li class="list-group-item">Need Body Repair
+                <label class="switch ">
+                <input type="checkbox" name="Need Body Repair" class="danger">
+                <span class="slider round"></span>
+                </label>
+                </li>
+                 <li class="list-group-item">Wiring problems
+                <label class="switch ">
+                <input type="checkbox" name="Wiring problems" class="danger">
+                <span class="slider round"></span>
+                </label>
+                </li>
+                 <li class="list-group-item">Oil leakage
+                <label class="switch ">
+                <input type="checkbox" name="Oil leakage" class="danger">
+                <span class="slider round"></span>
+                </label>
+                </li>
+                 <li class="list-group-item">Brake Issue
+                <label class="switch ">
+                <input type="checkbox" name="Brake Issue" class="danger">
+                <span class="slider round"></span>
+                </label>
+                </li>
+                </ul>
+            </div>
+            </fieldset>
+            <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+        </form>
+    </div>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already Have An Account? <a class="ml-2" href="{{ url_for('login')}}">Sign In</a>
+        </small>
+    </div>
+{% endblock content %}
